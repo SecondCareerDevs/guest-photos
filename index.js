@@ -46,3 +46,22 @@ app.get('/lookup', (req, res) => {
     }
   )
 })
+
+app.get('/show', (req, res) => {
+  if (!req.query.screen_name) {
+    res.status(500)
+    res.json({
+      error:
+        'Gotta have a screen_name in a query param to look up the user data!'
+    })
+    return
+  }
+
+  T.get(
+    'users/show',
+    { screen_name: req.query.screen_name },
+    (err, data, response) => {
+      res.json(data)
+    }
+  )
+})

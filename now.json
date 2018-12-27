@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "name": "guest-twitter-photos",
+  "alias": "guest-twitter-photos",
+  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "routes": [{ "src": "/(.*)", "dest": "index.js" }]
+}
